@@ -1,0 +1,121 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <TabHost
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tabHost"
+        android:layout_gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/tabFriendList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Friends List!"
+                        android:id="@+id/tvFriendList"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tabProfiler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Profile Creator"
+                        android:id="@+id/lblProfilerTitle"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp" />
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/txtName"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:hint="Friend Name" />
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="date"
+                        android:ems="10"
+                        android:id="@+id/txtBirthday"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:hint="Birthday" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtFavHob"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:hint="Favorites/Hobbies" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:id="@+id/txtNotes"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:layout_weight="2.08"
+                        android:hint="Note things about him/her!" />
+
+                    <Button
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Add Profile"
+                        android:id="@+id/bAddProfile"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:enabled="false" />
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvFriends"
+        android:layout_weight="4.35"
+        android:layout_gravity="center" />
+
+</LinearLayout>
