@@ -16,14 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ProfilerActivity"
-            android:label="@string/title_activity_profiler" >
-        </activity>
-        <activity
-            android:name=".FriendActivity"
-            android:label="@string/title_activity_friend" >
-        </activity>
     </application>
 
 </manifest>

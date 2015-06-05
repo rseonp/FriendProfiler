@@ -28,70 +28,44 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
-                    android:id="@+id/tabFriendList"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Friends List!"
-                        android:id="@+id/tvFriendList"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tabProfiler"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:weightSum="1">
+                    android:weightSum="1"
+                    android:id="@+id/tProfiler">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Profile Creator"
-                        android:id="@+id/lblProfilerTitle"
+                        android:id="@+id/tvProfilerTitle"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/ivSetProfileImage"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/no_user" />
 
                     <EditText
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName"
                         android:ems="10"
-                        android:id="@+id/txtName"
+                        android:id="@+id/etName"
                         android:layout_gravity="center"
                         android:layout_marginTop="15dp"
                         android:hint="Friend Name" />
 
                     <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="date"
-                        android:ems="10"
-                        android:id="@+id/txtBirthday"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="15dp"
-                        android:hint="Birthday" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtFavHob"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="15dp"
-                        android:hint="Favorites/Hobbies" />
-
-                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
-                        android:id="@+id/txtNotes"
+                        android:id="@+id/etNotes"
                         android:layout_gravity="center"
                         android:layout_marginTop="15dp"
                         android:layout_weight="2.08"
@@ -107,15 +81,33 @@
                         android:enabled="false" />
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/tFriendList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Friend List!"
+                        android:id="@+id/tvFriendList"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold" />
+
+                    <ListView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/lvProfileList"
+                        android:layout_weight="4.35"
+                        android:layout_gravity="center"
+                        android:headerDividersEnabled="false" />
+                </LinearLayout>
+
             </FrameLayout>
         </LinearLayout>
     </TabHost>
-
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvFriends"
-        android:layout_weight="4.35"
-        android:layout_gravity="center" />
 
 </LinearLayout>
