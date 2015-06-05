@@ -21,7 +21,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     TABLE_PROFILES = "profiles",
     KEY_ID = "id",
     KEY_NAME = "name",
-    KEY_NOTES = "notes",
+    KEY_FOCUS = "focus",
+    KEY_REMEMBER = "remember",
     KEY_IMAGEURI = "imageUri";
 
     public DatabaseHandler(Context context) {
@@ -30,7 +31,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_PROFILES + "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NAME + " TEXT," + KEY_NOTES + " TEXT," + KEY_IMAGEURI + " TEXT)");
+        db.execSQL("CREATE TABLE " + TABLE_PROFILES + "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NAME + " TEXT," + KEY_FOCUS + " TEXT," + KEY_REMEMBER + " TEXT," + KEY_IMAGEURI + " TEXT)");
     }
 
     @Override
@@ -45,7 +46,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, profile.getName());
-        values.put(KEY_NOTES, profile.getNotes());
+        values.put(KEY_FOCUS, profile.getFocus());
+        values.put(KEY_REMEMBER, profile.getRemember());
         values.put(KEY_IMAGEURI, profile.getImageUri().toString());
 
         db.insert(TABLE_PROFILES, null, values);
@@ -55,12 +57,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public Profile getProfile(int id) {
         SQLiteDatabase db = getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_PROFILES, new String[]{ KEY_ID, KEY_NAME, KEY_NOTES, KEY_IMAGEURI }, KEY_ID + "=?", new String[]{ String.valueOf(id) }, null, null, null, null);
+        Cursor cursor = db.query(TABLE_PROFILES, new String[]{ KEY_ID, KEY_NAME, KEY_FOCUS, KEY_REMEMBER, KEY_IMAGEURI }, KEY_ID + "=?", new String[]{ String.valueOf(id) }, null, null, null, null);
 
         if (cursor != null) {
             cursor.moveToFirst();
         }
-        Profile profile = new Profile(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), Uri.parse(cursor.getString(3)));
+        Profile profile = new Profile(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3), Uri.parse(cursor.getString(4)));
         db.close();
         cursor.close();
         return profile;
@@ -87,7 +89,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, profile.getName());
-        values.put(KEY_NOTES, profile.getNotes());
+        values.put(KEY_FOCUS, profile.getFocus());
+        values.put(KEY_REMEMBER, profile.getRemember());
         values.put(KEY_IMAGEURI, profile.getImageUri().toString());
         db.close();
 
@@ -105,7 +108,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                Profiles.add(new Profile(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), Uri.parse(cursor.getString(3))));
+                Profiles.add(new Profile(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3), Uri.parse(cursor.getString(4))));
             }
             while (cursor.moveToNext());
             }

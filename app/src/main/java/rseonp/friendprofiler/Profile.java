@@ -7,14 +7,15 @@ import android.net.Uri;
  */
 public class Profile {
 
-    private String name, notes;
+    private String name, focus, remember;
     private Uri imageUri;
     private int id;
 
-    public Profile(int id, String name, String notes, Uri imageUri) {
+    public Profile(int id, String name, String focus, String remember, Uri imageUri) {
         this.id = id;
         this.name = name;
-        this.notes = notes;
+        this.focus = focus;
+        this.remember = remember;
         this.imageUri = imageUri;
 
     }
@@ -27,8 +28,12 @@ public class Profile {
         return name;
     }
 
-    public String getNotes() {
-        return notes;
+    public String getFocus() {
+        return focus;
+    }
+
+    public String getRemember() {
+        return remember;
     }
 
     public Uri getImageUri() {

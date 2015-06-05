@@ -60,16 +60,36 @@
                         android:id="@+id/etName"
                         android:layout_gravity="center"
                         android:layout_marginTop="15dp"
-                        android:hint="Friend Name" />
+                        android:hint="Friend Name"
+                        android:gravity="center_horizontal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="What do you want to..."
+                        android:id="@+id/tvWantTo"
+                        android:layout_marginTop="10dp"
+                        android:textStyle="italic"
+                        android:layout_marginLeft="10dp" />
 
                     <EditText
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:id="@+id/etNotes"
+                        android:layout_height="75dp"
+                        android:id="@+id/etFocus"
                         android:layout_gravity="center"
                         android:layout_marginTop="15dp"
-                        android:layout_weight="2.08"
-                        android:hint="Note things about him/her!" />
+                        android:hint="FOCUS on next time?"
+                        android:gravity="center_horizontal" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="75dp"
+                        android:id="@+id/etRemember"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:hint="REMEMBER for next time?"
+                        android:gravity="center_horizontal" />
 
                     <Button
                         android:layout_width="200dp"
@@ -94,7 +114,7 @@
                         android:text="Friend List!"
                         android:id="@+id/tvFriendList"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="15dp"
                         android:textStyle="bold" />
 
                     <ListView
@@ -103,7 +123,8 @@
                         android:id="@+id/lvProfileList"
                         android:layout_weight="4.35"
                         android:layout_gravity="center"
-                        android:headerDividersEnabled="false" />
+                        android:headerDividersEnabled="false"
+                        android:layout_marginTop="15dp" />
                 </LinearLayout>
 
             </FrameLayout>

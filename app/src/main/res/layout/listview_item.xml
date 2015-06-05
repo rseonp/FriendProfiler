@@ -8,12 +8,15 @@
         android:layout_height="75dp"
         android:id="@+id/ivProfileImage"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp" />
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="center" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,8 +28,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Notes"
-            android:id="@+id/tvNotes"
+            android:text="Focus"
+            android:id="@+id/tvFocus"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remember"
+            android:id="@+id/tvRemember"
             android:layout_marginTop="5dp" />
     </LinearLayout>
 

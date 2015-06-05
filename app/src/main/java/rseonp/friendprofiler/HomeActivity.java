@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,7 +26,7 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    EditText etName, etNotes;
+    EditText etName, etFocus, etRemember;
     Button bAddProfile;
 
     ImageView ivSetProfileImage;
@@ -41,7 +42,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         etName = (EditText) findViewById(R.id.etName);
-        etNotes = (EditText) findViewById(R.id.etNotes);
+        etFocus = (EditText) findViewById(R.id.etFocus);
+        etRemember = (EditText) findViewById(R.id.etRemember);
         lvProfileList = (ListView) findViewById(R.id.lvProfileList);
         ivSetProfileImage = (ImageView) findViewById(R.id.ivSetProfileImage);
         dbHandler = new DatabaseHandler(getApplicationContext());
@@ -66,7 +68,7 @@ public class HomeActivity extends AppCompatActivity {
         bAddProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Profile profile = new Profile(dbHandler.getProfileCount(), String.valueOf(etName.getText()), String.valueOf(etNotes.getText()), imageUri);
+                Profile profile = new Profile(dbHandler.getProfileCount(), String.valueOf(etName.getText()), String.valueOf(etFocus.getText()), String.valueOf(etRemember.getText()), imageUri);
                 if (!profileExists(profile)) {
                     dbHandler.createProfile(profile);
                     Profiles.add(profile);
@@ -162,8 +164,10 @@ public class HomeActivity extends AppCompatActivity {
 
             TextView profileName = (TextView) view.findViewById(R.id.tvProfileName);
             profileName.setText(currentProfile.getName());
-            TextView notes = (TextView) view.findViewById(R.id.tvNotes);
-            notes.setText(currentProfile.getNotes());
+            TextView tvFocus = (TextView) view.findViewById(R.id.tvFocus);
+            tvFocus.setText(currentProfile.getFocus());
+            TextView tvRemember = (TextView) view.findViewById(R.id.tvRemember);
+            tvRemember.setText(currentProfile.getRemember());
             ImageView ivProfileImage = (ImageView) view.findViewById(R.id.ivProfileImage);
             ivProfileImage.setImageURI(currentProfile.getImageUri());
 
